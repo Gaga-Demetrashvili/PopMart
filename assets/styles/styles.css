@@ -11,6 +11,7 @@
 
 :root {
   --color-main: #ffbc00;
+  --color-link: #ffae0d;
   --color-white: #fff;
   --color-black-for-text: #1c1c1c;
   --color-secondary: #30343f;
@@ -71,7 +72,7 @@ header {
 }
 
 .header__starter {
-  height: 3.2rem;
+  height: 2.4rem;
   background-color: #e1e1e1;
   display: flex;
 }
@@ -80,9 +81,18 @@ header {
   font-size: 1.2rem;
 }
 
-.header__starter__text-2 {
-  font-size: 1rem;
+.header__starter__text-2:link,
+.header__starter__text-2:visited {
+  font-size: 1.2rem;
   font-weight: 600;
+  text-decoration: none;
+  color: var(--color-secondary);
+}
+
+.header__starter__text-2:hover,
+.header__starter__text-2:active {
+  color: var(--color-link);
+  text-decoration: underline;
 }
 
 .header__starter__container {
@@ -123,6 +133,7 @@ header {
 
 .search-container {
   display: flex;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -132,16 +143,39 @@ header {
 .input__search {
   outline: none;
   width: 58.2rem;
-  height: 3rem;
+  height: 4rem;
   border: none;
   padding: 0.8rem 1.2rem 0.8rem 4.8rem;
-  border-radius: 25px;
+  border-radius: 16px;
 }
 
 .search-icon {
   position: absolute;
-  top: 0.2rem;
+  top: 50%;
   left: 2rem;
+  transform: translateY(-50%);
+}
+
+.select__container {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  border-radius: 0 16px 16px 0;
+  transform: all 0.2s ease-in;
+}
+
+.category__select {
+  height: 100%;
+  width: 17.8rem;
+  border: none;
+  outline: none;
+  border-radius: 0 16px 16px 0;
+  padding: 0 1rem;
+}
+
+.category__select:hover {
+  cursor: pointer;
+  background-color: var(--color-footer-navigation-list-color);
 }
 
 .btn__container {
@@ -181,22 +215,37 @@ header {
   outline: none;
   padding: 0.8rem 1.2rem;
   text-decoration: none;
-  border: 2px solid var(--color-main);
-  border-radius: 20px;
+  border-radius: 16px;
   font-size: 1.2rem;
   font-weight: 900;
+  transition: all 0.2s ease-in;
+  display: flex;
+  align-items: center;
 }
 
 .btn--outline:link,
 .btn--outline:visited {
-  color: var(--color-main);
+  color: var(--color-link);
+  border: 2px solid rgb(255, 174, 13, 0.5);
   font-weight: 500;
+  height: 4rem;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  border: 2px solid var(--color-link);
 }
 
 .btn--full:link,
 .btn--full:visited {
-  background-color: var(--color-main);
+  background-color: rgb(255, 174, 13, 0.8);
   color: var(--color-black-for-text);
+  height: 4rem;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--color-link);
 }
 
 .navigation {
@@ -215,22 +264,19 @@ header {
 .category__container {
   display: flex;
   gap: 2rem;
-  height: 3rem;
+  height: 100%;
   background-color: var(--color-white);
   border-radius: 0 2rem 2rem 0;
   position: absolute;
   right: 0;
   padding: 0.8rem 1.6rem;
   align-items: center;
+  transition: all 0.2s ease-in;
 }
 
-.category__btn {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.category__container:hover {
+  border-color: var(--color-footer-navigation-list-color);
+  cursor: pointer;
 }
 
 .category__btn__text {
@@ -242,11 +288,6 @@ header {
 
 .arrow-down-icon {
   transform: scale(1.2);
-}
-
-.category__part-1 {
-  display: flex;
-  gap: 1rem;
 }
 
 .vertical-line {
